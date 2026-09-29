@@ -1,0 +1,141 @@
+/* Playwrite Cuba Guides */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+CU+Guides&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+.container{
+    width: 100%;
+    height: max-content;
+    background-color: #6dc380;  
+}
+.header{
+    width: 100%;
+    height: 70px;
+    background-color: rgb(14, 13, 13);
+    padding: 10px 160px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.breand{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.Breand{
+    font-weight: 600;
+    font-size: 36px;
+    color: #6dc380;
+    font-family: "Dancing Script", cursive;
+}
+.logo{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.nav-links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+.item-link{
+    color: #6dc380;
+    font-weight: 500;
+    font-size: 16px;
+}
+.header-btn{
+    padding: 12px 25px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    background-color: #6dc380;
+    font-family: cursive;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 80px;
+}
+.left-title{
+    font-weight: 700;
+    font-size: 56px;
+    margin-bottom: 30px;
+}
+.left-subtitle{
+    width: 550px;
+    font-weight: 400;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.btn{
+    padding: 15px 30px;
+    border: none;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+}
+.hero-right{
+    position: relative;
+    font-family: cursive;
+}
+.phone{
+    width: 450px;
+    
+}
+.teacher{
+    position: absolute;
+    width: 350px;
+    z-index: auto;
+    left: 50px;
+    top: 50px;
+}
+.cost{
+    padding: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 50px;
+}
+.card{
+    width: 300px;
+    height: 400px;
+    padding: 30px 20px;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+.narx{
+    font-size: 24px;
+}
+.narxi{
+    font-weight: 500;
+    font-size: 40px;
+    display: inline;
+    margin-bottom: 10px;
+}
+.soat{
+    color: blue;
+}
+.malumot{
+    margin-top: 6px;
+    font-size: 16px;
+}
+.card-btn{
+    margin-top: 50px;
+    padding: 20px 90px;
+    border: none;
+    border-radius: 25px;
+    background-color: black;
+    color: white;
+}
