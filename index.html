@@ -1,86 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lo'g'atlar</title>
+    <meta name="description" content="AuraDeutsch - nemis tilida gapirishni o'rganing">
+    <title>AuraDeutsch | Nemis tilini o'rganamiz</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="container">
+<div class="container">
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a class="brand" href="#home">
+                <img class="logo" src="https://rematchcis.ru/uploads/teams/1777391073_e0aef7fd6d02.png" alt="AuraDeutsch logo">
+                <span class="brand-name">AuraDeutsch</span>
+            </a>
 
-        <header class="header">
-            <div class="breand">
-                <img class="logo" src="https://rematchcis.ru/uploads/teams/1777391073_e0aef7fd6d02.png" alt="">
-            <span class="header-span">
-                <a class="Breand" href="./index.html">AuraDeutsch</a>
-            </span>
-            </div>
-            <nav class="nav">
+            <nav class="nav" id="nav" aria-label="Asosiy menyu">
                 <ul class="nav-links">
-                    <li class="links-item">
-                        <a class="item-link" href="">Uy</a>
-                    </li>
-                    <li class="links-item">
-                        <a class="item-link" href="./teacher.html">Ustozlar</a>
-                    </li>
+                    <li><a class="item-link active" href="#home">Uy</a></li>
+                    <li><a class="item-link" href="#about">Biz haqimizda</a></li>
+                    <li><a class="item-link" href="#teachers">Ustozlar</a></li>
+                    <li><a class="item-link" href="#product">Mahsulotlar</a></li>
+                    <li><a class="item-link" href="#contact">Aloqa</a></li>
                 </ul>
             </nav>
-            <button class="header-btn">O'rnatib olish</button>
-        </header>
-        <section class="hero">
+
+            <button class="btn btn-small" id="installBtn">O'rnatib olish</button>
+
+            <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- HOME -->
+        <section class="hero section" id="home">
             <div class="hero-left">
-                <h1 class="left-title">
-                    Nemis tilida <br> gapirishni o'rganamiz
-                </h1>
-                <p class="left-subtitle">
-                    Har kuni birozgina vaqtingizni o'qish uchun ajrating.Bir kun kelib uning natijasini Albatta ko'rasiz.
+                <span class="badge">🇩🇪 Deutsch lernen</span>
+                <h1 class="hero-title">Nemis tilida <br><span>gapirishni</span> o'rganamiz</h1>
+                <p class="hero-subtitle">
+                    Har kuni birozgina vaqtingizni o'qishga ajrating. Bir kun kelib uning natijasini albatta ko'rasiz.
                 </p>
-                <button class="btn">O'rnatib olish</button>
+                <div class="hero-actions">
+                    <a class="btn" href="#product">Boshlash</a>
+                    <a class="btn btn-outline" href="#about">Batafsil</a>
+                </div>
+                <ul class="stats">
+                    <li><strong>5000+</strong><span>o'quvchi</span></li>
+                    <li><strong>4</strong><span>ustoz</span></li>
+                    <li><strong>24/7</strong><span>mashq</span></li>
+                </ul>
             </div>
             <div class="hero-right">
-                <img class="phone" src="https://png.pngtree.com/png-clipart/20230206/ourmid/pngtree-cell-phone-mockup-png-image_6584030.png" alt="">
-                <img class="teacher" src="https://static.vecteezy.com/system/resources/previews/039/324/545/non_2x/ai-generated-3d-cute-cartoon-male-teacher-character-png.png" alt="">
+                <img class="phone" src="https://png.pngtree.com/png-clipart/20230206/ourmid/pngtree-cell-phone-mockup-png-image_6584030.png" alt="Telefon">
+                <img class="teacher" src="https://static.vecteezy.com/system/resources/previews/039/324/545/non_2x/ai-generated-3d-cute-cartoon-male-teacher-character-png.png" alt="Ustoz">
             </div>
         </section>
 
-        <section class="cost">
-            <div class="card">
-                    <h3 class="narx">Narxi</h3>
-                    <p class="malumot">Sinov uchun</p>
-                    <h2 class="narxi">00,000 so'm</h2>
+        <!-- ABOUT -->
+        <section class="about section" id="about">
+            <h2 class="section-title">Biz haqimizda</h2>
+            <p class="section-text">
+                AuraDeutsch — sun'iy intellekt ustozlar bilan jonli suhbat orqali nemis tilini tez va qiziqarli o'rgatadigan ilova.
+            </p>
+            <div class="features">
+                <article class="feature">
+                    <div class="feature-icon">💬</div>
+                    <h3>Jonli suhbat</h3>
+                    <p>Ustoz bilan har kuni gaplashing va so'zlashuv ko'nikmangizni oshiring.</p>
+                </article>
+                <article class="feature">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Xatolar tahlili</h3>
+                    <p>Suhbatdan keyin xatolaringiz tahlil qilinadi va ustozlar ularni eslab qoladi.</p>
+                </article>
+                <article class="feature">
+                    <div class="feature-icon">📱</div>
+                    <h3>Istalgan qurilmada</h3>
+                    <p>Telefon, planshet yoki kompyuterda — qayerda bo'lsangiz ham o'rganing.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- TEACHERS -->
+        <section class="teachers section" id="teachers">
+            <h2 class="section-title">Ustozlarimiz</h2>
+            <p class="section-text">O'zingizga mos xarakterdagi ustozni tanlang: muloyim, o'rgatuvchi, o'rtacha yoki qattiqqo'l.</p>
+
+            <div class="teach">
+                <div class="cart">
+                <img class="image" src="https://i.etsystatic.com/32486242/r/il/7b7a8a/6673329284/il_570xN.6673329284_gpqs.jpg" alt="">
+                <div class="text">
+                    <h3 class="text-title">Yumshoq</h3>
+                    <button class="text-btn">Boshlang'ich</button>
+                    <h4 class="daraja">Erkin suhbat</h4>
+                    <p class="hususiyat">
+                        Yangi boshlaganlar uchun. Bosim <br> yo'q — faqat gaplashish.
+                    </p>
+                </div>
+            </div>
+            <div class="cart">
+                <img class="image" src="https://avatars.mds.yandex.net/i?id=55df13af33f7973d9c1cdaeb03f8ed8f61dc3e0f-9380290-images-thumbs&n=13" alt="">
+                <div class="text">
+                    <h3 class="text-title">O'rgatuvchi</h3>
+                    <button class="text-btn">O'rta</button>
+                    <h4 class="daraja">Gramatik dars</h4>
+                    <p class="hususiyat">Qoidalar tushunarsiz bo'lganda. <br> Sababini tushuntiradi.</p>
+                </div>
+            </div>
+        <div class="cart">
+                <img class="image" src="https://static.vecteezy.com/system/resources/previews/057/080/167/non_2x/male-teacher-providing-instructions-with-book-vector.jpg" alt="">
+                <div class="text">
+                    <h3 class="text-title">O'rtacha</h3>
+                    <button class="text-btn">Imtihon</button>
+                    <h4 class="daraja">Imtihon uchun</h4>
+                    <p class="hususiyat">imtixon vaziyatiga o'xshash mashq. <br> Haqiqiy tayyorgarlik.</p>
+                </div>
+            </div>
+            <div class="cart">
+                <img class="image" src="https://previews.123rf.com/images/catocala7/catocala72310/catocala7231000278/216448274-angry-teacher-funny-cute-cartoon-3d-illustration-on-white-background-creative-avatar.jpg" alt="">
+                <div class="text">
+                    <h3 class="text-title">Qattiqqo'l</h3>
+                    <button class="text-btn">Yuqori</button>
+                    <h4 class="daraja">Cheklanmagan suhbat</h4>
+                    <p class="hususiyat">Yumshoqlikka chidamaydiganlar <br> uchun. Xatoni takrorlamaydi.</p>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT -->
+        <section class="cost section" id="product">
+            <h2 class="section-title">Narxlar</h2>
+            <p class="section-text">O'zingizga mos tarifni tanlang</p>
+
+            <div class="cards">
+                <div class="card">
+                    <h3 class="narx">Sinov</h3>
+                    <p class="malumot muted">Sinov uchun</p>
+                    <h2 class="narxi">Bepul</h2>
                     <p class="soat">4 daqiqa / 1 marotaba</p>
-                    <p class="malumot">2 daqiqa jonli suhbat / kun</p>
-                    <p class="malumot">2 daqiqa tahlili</p>
-                    <p class="malumot">Barcha ustozlar, cheklovsiz</p>
-                    <p class="malumot">Ustozlar xatolarni eslab qoladi </p>
-                    <button class="card-btn">sinab ko'rish</button>
+                    <ul class="card-list">
+                        <li>2 daqiqa jonli suhbat / kun</li>
+                        <li>2 daqiqa tahlili</li>
+                        <li>Barcha ustozlar, cheklovsiz</li>
+                        <li>Ustozlar xatolarni eslab qoladi</li>
+                    </ul>
+                    <button class="card-btn" data-plan="Sinov" data-price="Bepul">Sinab ko'rish</button>
                 </div>
-                <div class="card">
-                    <h3 class="narx">Narxi</h3>
-                    <p class="malumot">Kunlik mashqlar uchun</p>
-                    <h2 class="narxi">80,000 so'm</h2>
-                    <span class="card-span">/ oy</span>
+
+                <div class="card popular">
+                    <span class="ribbon">Mashhur</span>
+                    <h3 class="narx">Standart</h3>
+                    <p class="malumot muted">Kunlik mashqlar uchun</p>
+                    <h2 class="narxi">80,000 so'm <span class="card-span">/ oy</span></h2>
                     <p class="soat">12 daqiqa / kun</p>
-                    <p class="malumot">8 daqiqa jonli suhbat / kun</p>
-                    <p class="malumot">4 daqiqa tahlili</p>
-                    <p class="malumot">Barcha ustozlar, cheklovsiz</p>
-                    <p class="malumot">Ustozlar xatolarni eslab qoladi </p>
-                    <button class="card-btn">Xarid qilish</button>
+                    <ul class="card-list">
+                        <li>8 daqiqa jonli suhbat / kun</li>
+                        <li>4 daqiqa tahlili</li>
+                        <li>Barcha ustozlar, cheklovsiz</li>
+                        <li>Ustozlar xatolarni eslab qoladi</li>
+                    </ul>
+                    <button class="card-btn" data-plan="Standart" data-price="80,000 so'm / oy">Xarid qilish</button>
                 </div>
+
                 <div class="card">
-                    <h3 class="narx">Narxi</h3>
-                    <p class="malumot">Kunlik mashqlar uchun</p>
-                    <h2 class="narxi">150,000 so'm</h2>
-                    <span class="card-span">/ oy</span>
+                    <h3 class="narx">Premium</h3>
+                    <p class="malumot muted">Kunlik mashqlar uchun</p>
+                    <h2 class="narxi">150,000 so'm <span class="card-span">/ oy</span></h2>
                     <p class="soat">20 daqiqa / kun</p>
-                    <p class="malumot">14 daqiqa jonli suhbat / kun</p>
-                    <p class="malumot">6 daqiqa tahlili</p>
-                    <p class="malumot">Barcha ustozlar, cheklovsiz</p>
-                    <p class="malumot">Ustozlar xatolarni eslab qoladi </p>
-                    <button class="card-btn">Xarid qilish</button>
+                    <ul class="card-list">
+                        <li>14 daqiqa jonli suhbat / kun</li>
+                        <li>6 daqiqa tahlili</li>
+                        <li>Barcha ustozlar, cheklovsiz</li>
+                        <li>Ustozlar xatolarni eslab qoladi</li>
+                    </ul>
+                    <button class="card-btn" data-plan="Premium" data-price="150,000 so'm / oy">Xarid qilish</button>
                 </div>
-            </section>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Aloqa</h2>
+            <p class="section-text">Savollaringiz bormi? Bizga yozing.</p>
+
+            <div class="contact-wrap">
+                <ul class="contact-info">
+                    <li>📍 Namangan, O'zbekiston</li>
+                    <li>📞 +998 99 999 99</li>
+                    <li>✉️ info@auradeutsch.uz</li>
+                    <li>🕘 Har kuni 09:00 – 21:00</li>
+                </ul>
+
+                <form class="contact-form" id="contactForm" novalidate>
+                    <label>
+                        Ismingiz
+                        <input type="text" id="name" placeholder="Ismingizni kiriting" required>
+                    </label>
+                    <label>
+                        Telefon yoki email
+                        <input type="text" id="phone" placeholder="+998 ..." required>
+                    </label>
+                    <label>
+                        Xabar
+                        <textarea id="message" rows="4" placeholder="Xabaringiz..." required></textarea>
+                    </label>
+                    <p class="form-error" id="formError"></p>
+                    <button type="submit" class="btn">Yuborish</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="brand-name">AuraDeutsch</span>
+                <p>Nemis tilini oson va qiziqarli o'rganing.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="#home">Uy</a></li>
+                <li><a href="#about">Biz haqimizda</a></li>
+                <li><a href="#teachers">Ustozlar</a></li>
+                <li><a href="#product">Mahsulotlar</a></li>
+                <li><a href="#contact">Aloqa</a></li>
+            </ul>
+        </div>
+        <p class="copyright">© <span id="year"></span> AuraDeutsch. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal" aria-hidden="true">
+        <div class="modal-box" role="dialog" aria-modal="true">
+            <div class="modal-icon">✅</div>
+            <h3 id="modalTitle">Sotib oldingiz!</h3>
+            <p id="modalText"></p>
+            <button class="btn" id="modalClose">Yopish</button>
+        </div>
     </div>
+
+</div>
+    
+    <script src="./js/script.js"></script>
 </body>
 </html>
