@@ -1,0 +1,899 @@
+/* =========================================================
+   AuraDeutsch — asosiy uslublar + barcha qurilmalar uchun media
+   ========================================================= */
+
+:root {
+    --blue: #6dc380;
+    --blue-dark: #238a4c;
+    --blue-deep: #14532d;
+    --green-mid: #2f7d49;
+    --bg: #6dc380;
+    --text: #17212e;
+    --muted: #254a35;
+    --white: #ffffff;
+    --gold: #ffcc00;
+    --radius: 22px;
+    --shadow: 0 10px 30px rgba(20, 83, 45, 0.22);
+    --header-h: 72px;
+
+    /* Yon bo'shliq (notch / safe-area hisobga olingan) */
+    --pad: 24px;
+    --py: 80px;
+    --gl: max(var(--pad), env(safe-area-inset-left, 0px));
+    --gr: max(var(--pad), env(safe-area-inset-right, 0px));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-h);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Butun sayt shu konteyner ichida.
+   Ichki kontent (.section, .header-inner, .footer-inner) 1200px bilan cheklanib markazlanadi,
+   fon esa ekranning ikki chetigacha to'liq boradi. */
+.container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow-x: clip;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    font-family: inherit;
+}
+
+.section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--py) var(--gr) var(--py) var(--gl);
+}
+
+.section-title {
+    font-size: clamp(26px, 4vw, 40px);
+    text-align: center;
+    color: var(--blue-deep);
+    margin-bottom: 12px;
+}
+
+.section-text {
+    text-align: center;
+    color: var(--muted);
+    max-width: 640px;
+    margin: 0 auto 48px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--blue-dark);
+    color: var(--white);
+    border: 2px solid var(--blue-dark);
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    background: var(--blue-deep);
+    border-color: var(--blue-deep);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-outline {
+    background: var(--white);
+    border-color: var(--white);
+    color: var(--blue-deep);
+}
+
+.btn-outline:hover {
+    background: var(--blue-deep);
+    border-color: var(--blue-deep);
+    color: var(--white);
+}
+
+.btn-small {
+    padding: 10px 22px;
+    font-size: 15px;
+}
+
+/* ---------- Header ---------- */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--header-h);
+    background: rgba(255, 255, 255, 0.92);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.header-inner {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 var(--gr) 0 var(--gl);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.brand-name {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--blue-deep);
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    gap: 8px;
+}
+
+.item-link {
+    display: block;
+    padding: 8px 16px;
+    border-radius: 10px;
+    color: var(--text);
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+}
+
+.item-link:hover,
+.item-link.active {
+    background: var(--blue-dark);
+    color: var(--white);
+}
+
+.burger {
+    display: none;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.burger span {
+    width: 26px;
+    height: 3px;
+    background: var(--blue-deep);
+    border-radius: 3px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ---------- Hero ---------- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    min-height: calc(100vh - var(--header-h));
+    min-height: calc(100svh - var(--header-h));
+}
+
+.hero-left {
+    flex: 1 1 50%;
+    min-width: 0;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--white);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--blue-dark);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: clamp(30px, 5vw, 56px);
+    line-height: 1.15;
+    color: var(--blue-deep);
+    margin-bottom: 20px;
+}
+
+.hero-title span {
+    color: var(--blue-deep);
+    background: linear-gradient(transparent 62%, var(--gold) 62%);
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 32px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 40px;
+}
+
+.stats {
+    display: flex;
+    gap: 36px;
+}
+
+.stats li {
+    display: flex;
+    flex-direction: column;
+}
+
+.stats strong {
+    font-size: 28px;
+    color: var(--blue-deep);
+}
+
+.stats span {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.hero-right {
+    flex: 1 1 45%;
+    min-width: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 460px;
+}
+
+.phone {
+    width: min(320px, 70%);
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
+}
+
+.teacher {
+    position: absolute;
+    width: min(240px, 50%);
+    right: 0;
+    bottom: 0;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-14px); }
+}
+
+/* ---------- About ---------- */
+.about {
+    background: transparent;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.feature {
+    background: var(--white);
+    padding: 32px 24px;
+    border-radius: var(--radius);
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s;
+}
+
+.feature:hover {
+    transform: translateY(-6px);
+}
+
+.feature-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.feature h3 {
+    color: var(--blue-deep);
+    margin-bottom: 8px;
+}
+
+.feature p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* ---------- Teachers ---------- */
+.teach {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 18px;
+    border: 2px solid gray;
+    text-align: center;
+    border-radius: 25px;
+    background-color: white;
+    color: black;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.cart:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+}
+
+.image {
+    width: min(220px, 100%);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--blue-dark);
+    background: #e3f5e8;
+}
+
+.text {
+    width: 100%;
+}
+
+.text-title {
+    margin-top: 12px;
+}
+
+.text-btn {
+    margin-top: 12px;
+    padding: 10px 24px;
+    background-color: var(--blue-dark);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.daraja {
+    margin-top: 12px;
+    margin-bottom: 10px;
+    color: var(--blue-dark);
+}
+
+.hususiyat {
+    font-size: 15px;
+    color: var(--muted);
+    text-wrap: balance;
+}
+
+.hususiyat br {
+    display: none;
+}
+
+/* ---------- Product / Cost ---------- */
+.cost {
+    max-width: none;
+    background: var(--green-mid);
+}
+
+.cost .section-title,
+.cost .section-text {
+    color: var(--white);
+}
+
+.cards {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    align-items: stretch;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 24px;
+    background: var(--white);
+    border: 2px solid transparent;
+    border-radius: 25px;
+    text-align: center;
+    color: var(--text);
+    box-shadow: var(--shadow);
+    transition: transform 0.25s, border-color 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--blue-dark);
+}
+
+.card.popular {
+    border-color: var(--gold);
+}
+
+.ribbon {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 18px;
+    background: var(--gold);
+    color: #4a3b00;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 999px;
+}
+
+.narx {
+    font-size: 22px;
+    color: var(--blue-deep);
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.narxi {
+    margin: 14px 0 4px;
+    font-size: 30px;
+    color: var(--blue-dark);
+}
+
+.card-span {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.soat {
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.card-list {
+    flex: 1;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.card-list li {
+    position: relative;
+    padding: 6px 0 6px 28px;
+    font-size: 15px;
+    border-bottom: 1px dashed #d5ebdb;
+}
+
+.card-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 4px;
+    color: #22a559;
+    font-weight: 700;
+}
+
+.card-btn {
+    padding: 13px 25px;
+    background: var(--blue-dark);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.card-btn:hover {
+    background: var(--blue-deep);
+    transform: scale(1.03);
+}
+
+/* ---------- Contact ---------- */
+.contact-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 32px;
+    background: var(--blue-deep);
+    color: var(--white);
+    border-radius: var(--radius);
+    font-size: 17px;
+    overflow-wrap: anywhere;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--blue-deep);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #cfe8d6;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 16px; /* iOS'da input bosilganda zoom bo'lmasligi uchun */
+    font-weight: 400;
+    color: var(--text);
+    resize: vertical;
+    transition: border-color 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--blue-dark);
+}
+
+.form-error {
+    min-height: 20px;
+    color: #d33;
+    font-size: 14px;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    background: #10233f;
+    color: #cdd9ea;
+    padding: 48px 0 20px;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--gr) 0 var(--gl);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.footer .brand-name {
+    color: var(--white);
+}
+
+.footer-brand p {
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+}
+
+.footer-links a {
+    color: #cdd9ea;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    max-width: 1200px;
+    margin: 32px auto 0;
+    padding: 16px var(--gr) env(safe-area-inset-bottom, 0px) var(--gl);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    text-align: center;
+    font-size: 13px;
+}
+
+/* ---------- Modal ---------- */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(10, 25, 50, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s, visibility 0.25s;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 36px 28px;
+    background: var(--white);
+    border-radius: var(--radius);
+    text-align: center;
+    transform: scale(0.85);
+    transition: transform 0.25s;
+}
+
+.modal.show .modal-box {
+    transform: scale(1);
+}
+
+.modal-icon {
+    font-size: 56px;
+}
+
+.modal-box h3 {
+    margin: 8px 0;
+    font-size: 24px;
+    color: var(--blue-deep);
+}
+
+.modal-box p {
+    margin-bottom: 24px;
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   RESPONSIVE — qurilmalar bo'yicha
+   (kattadan kichikka qarab)
+   ========================================================= */
+
+/* ---- Katta monitorlar (2K / 4K) ---- */
+@media (min-width: 1641px) {
+    .hero-title { font-size: 60px; }
+}
+
+/* ---- Noutbuk (13–15") ---- */
+@media (max-width: 1280px) {
+    .hero-right { min-height: 420px; }
+    .cards { gap: 22px; }
+}
+
+/* ---- Kichik noutbuk / iPad Pro 11" landshaft / iPad landshaft (≈1024–1194) ---- */
+@media (max-width: 1194px) {
+    :root { --py: 68px; }
+    .header-inner { gap: 14px; }
+    .nav-links { gap: 2px; }
+    .item-link { padding: 8px 11px; font-size: 15px; }
+    .brand-name { font-size: 20px; }
+    .btn-small { padding: 9px 16px; }
+    .card { padding: 28px 18px; }
+    .narxi { font-size: 26px; }
+    .hero-inner, .hero { gap: 28px; }
+    .teach { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .image { width: min(240px, 100%); }
+}
+
+/* ---- Planshet portret: iPad mini 744 / iPad 768, 810, 820, 834 / Galaxy Tab 800 ---- */
+@media (max-width: 992px) {
+    :root { --py: 60px; }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        min-height: auto;
+        padding-top: 48px;
+        gap: 24px;
+    }
+    .hero-subtitle { margin-left: auto; margin-right: auto; }
+    .hero-actions,
+    .stats { justify-content: center; }
+    .hero-right { width: 100%; min-height: 380px; }
+
+    .contact-wrap { grid-template-columns: 1fr; }
+
+    .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cards .card:last-child {
+        grid-column: 1 / -1;
+        width: 100%;
+        max-width: 540px;
+        margin: 0 auto;
+    }
+}
+
+/* ---- Menyu burger'ga o'tadi (planshet portret + barcha telefonlar) ---- */
+@media (max-width: 900px) {
+    .burger { display: flex; }
+    .header .btn-small { display: none; }
+
+    .nav {
+        position: absolute;
+        top: var(--header-h);
+        left: 0;
+        right: 0;
+        background: var(--white);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    .nav.open { max-height: 420px; }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 4px;
+        padding: 12px var(--gr) 20px var(--gl);
+    }
+    .item-link { padding: 13px 14px; font-size: 16px; }
+}
+
+/* ---- Katta telefonlar va kichik planshetlar (≤768) ---- */
+@media (max-width: 768px) {
+    :root {
+        --pad: 20px;
+        --py: 52px;
+        --header-h: 64px;
+    }
+    .logo { width: 36px; height: 36px; }
+    .section-text { margin-bottom: 32px; }
+    .hero-right { min-height: 340px; }
+    .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+    .footer-links { justify-content: center; }
+}
+
+/* ---- Telefon (≤600): Galaxy S / Pixel / iPhone Plus / Pro Max ---- */
+@media (max-width: 600px) {
+    .teach { grid-template-columns: 1fr; gap: 18px; }
+    .cart { width: 100%; max-width: 440px; margin: 0 auto; }
+
+    .cards { grid-template-columns: 1fr; gap: 24px; }
+    .cards .card:last-child { grid-column: auto; max-width: none; }
+    .features { grid-template-columns: 1fr; }
+
+    .hero { padding-top: 36px; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-subtitle { font-size: 16px; }
+    .hero-right { min-height: 300px; }
+    .stats { gap: 22px; justify-content: space-around; }
+    .stats strong { font-size: 24px; }
+
+    .contact-info,
+    .contact-form { padding: 22px; }
+    .contact-info { font-size: 16px; }
+
+    /* barmoq bilan bosish uchun qulay o'lcham */
+    .btn, .card-btn, .text-btn { min-height: 46px; }
+}
+
+/* ---- Oddiy telefonlar (≤430): iPhone 12–16, Pixel, Galaxy A/S ---- */
+@media (max-width: 430px) {
+    :root { --pad: 16px; --py: 46px; }
+    .brand-name { font-size: 19px; }
+    .hero-title { font-size: 30px; }
+    .hero-right { min-height: 280px; }
+    .card { padding: 26px 16px; }
+    .narxi { font-size: 26px; }
+    .modal-box { padding: 30px 20px; }
+}
+
+/* ---- Kichik telefonlar (≤375): iPhone SE / mini, Galaxy S ---- */
+@media (max-width: 375px) {
+    :root { --pad: 14px; }
+    .brand-name { font-size: 18px; }
+    .logo { width: 32px; height: 32px; }
+    .hero-title { font-size: 27px; }
+    .hero-right { min-height: 250px; }
+    .phone { width: 62%; }
+    .teacher { width: 40%; }
+    .narxi { font-size: 24px; }
+    .stats { gap: 12px; }
+    .stats strong { font-size: 21px; }
+    .stats span { font-size: 13px; }
+    .btn { padding: 12px 22px; font-size: 15px; }
+}
+
+/* ---- Juda tor ekranlar (Galaxy Fold 280–344, eski telefonlar 320) ---- */
+@media (max-width: 340px) {
+    :root { --pad: 12px; }
+    .brand-name { font-size: 16px; }
+    .logo { width: 28px; height: 28px; }
+    .hero-title { font-size: 24px; }
+    .section-title { font-size: 24px; }
+    .stats { flex-wrap: wrap; justify-content: center; }
+    .card-list li { font-size: 14px; }
+    .contact-info,
+    .contact-form { padding: 16px; }
+}
+
+/* ---- Telefon landshaft (balandlik kam) ---- */
+@media (max-height: 480px) and (orientation: landscape) {
+    .hero { min-height: auto; padding-top: 24px; padding-bottom: 24px; }
+    .nav.open { max-height: 70vh; overflow-y: auto; }
+    .modal { align-items: flex-start; overflow-y: auto; }
+}
+
+/* ---- Sensorli ekranlarda hover animatsiyasi yo'q ---- */
+@media (hover: none) {
+    .card:hover,
+    .cart:hover,
+    .feature:hover,
+    .btn:hover,
+    .card-btn:hover { transform: none; }
+}
+
+/* ---- Animatsiyani kamaytirishni so'ragan foydalanuvchilar ---- */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .teacher { animation: none; }
+    * { transition-duration: 0.01ms !important; }
+}
