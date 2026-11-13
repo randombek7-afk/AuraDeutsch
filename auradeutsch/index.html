@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#6dc380">
+    <meta name="theme-color" content="#e3f1e7">
     <meta name="description" content="AuraDeutsch - nemis tilida gapirishni o'rganing">
     <title>AuraDeutsch | Nemis tilini o'rganamiz</title>
+    <link rel="stylesheet" href="./vendor/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -40,7 +41,7 @@
         <!-- HOME -->
         <section class="hero section" id="home">
             <div class="hero-left">
-                <span class="badge">🇩🇪 Deutsch lernen</span>
+                <span class="badge"><i class="fa-solid fa-language" aria-hidden="true"></i> Deutsch lernen</span>
                 <h1 class="hero-title">Nemis tilida <br><span>gapirishni</span> o'rganamiz</h1>
                 <p class="hero-subtitle">
                     Har kuni birozgina vaqtingizni o'qishga ajrating. Bir kun kelib uning natijasini albatta ko'rasiz.
@@ -56,8 +57,74 @@
                 </ul>
             </div>
             <div class="hero-right">
-                <img class="phone" src="https://png.pngtree.com/png-clipart/20230206/ourmid/pngtree-cell-phone-mockup-png-image_6584030.png" alt="Telefon">
-                <img class="teacher" src="https://static.vecteezy.com/system/resources/previews/039/324/545/non_2x/ai-generated-3d-cute-cartoon-male-teacher-character-png.png" alt="Ustoz">
+                <div class="device-wrap">
+                <div class="device" role="img" aria-label="AuraDeutsch ilovasi: nemis tilida ustoz bilan jonli suhbat">
+                    <span class="side s1"></span><span class="side s2"></span><span class="side s3"></span>
+                    <div class="screen">
+                        <span class="island"></span>
+                        <div class="statusbar">
+                            <span>9:41</span>
+                            <span class="status-icons">
+                                <i class="fa-solid fa-signal"></i>
+                                <i class="fa-solid fa-wifi"></i>
+                                <i class="fa-solid fa-battery-full"></i>
+                            </span>
+                        </div>
+                        <div class="app-head">
+                            <span class="ava">A</span>
+                            <span class="who">
+                                <strong>Anna Müller</strong>
+                                <span><b class="online"></b>Yumshoq ustoz · onlayn</span>
+                            </span>
+                            <i class="fa-solid fa-ellipsis-vertical more"></i>
+                        </div>
+                        <div class="timer"><i class="fa-solid fa-clock"></i> 08:00 / 12:00 daqiqa</div>
+                        <div class="chat">
+                            <div class="msg them">Guten Tag! Ich bin Anna, deine Deutschlehrerin.<small>Salom! Men Annaman, nemis tili ustozing.</small></div>
+                            <div class="msg them">Hallo! Schön, dich zu sehen.<small>Salom! Seni ko'rganimdan xursandman.</small></div>
+                            <div class="msg me">Hallo Anna! Danke.</div>
+                            <div class="msg them">Was hast du gestern gemacht?<small>Kecha nima qilding?</small></div>
+                            <div class="msg me">Ich <span class="err">habe</span> gestern <span class="err">Kino</span> gegangen.</div>
+                            <div class="tip">
+                                <i class="fa-solid fa-lightbulb"></i>
+                                <span><b>Tuzatish:</b> Ich <u>bin</u> gestern <u>ins Kino</u> gegangen.<small>«gehen» fe'li «sein» bilan keladi.</small></span>
+                            </div>
+                            <div class="msg them">Super! Welchen Film hast du gesehen?<small>Zo'r! Qaysi filmni ko'rding?</small></div>
+                            <div class="msg me voice"><i class="fa-solid fa-play"></i><span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>0:06</div>
+                        </div>
+                        <div class="controls">
+                            <span class="wave live"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                            <span class="mic"><i class="fa-solid fa-microphone"></i></span>
+                            <span class="hint">Gapirish uchun bosing</span>
+                            <span class="home-bar"></span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QR KOD -->
+        <section class="qr section" id="qr" aria-labelledby="qrTitle">
+            <div class="qr-card">
+                <div class="qr-text">
+                    <span class="badge"><i class="fa-solid fa-qrcode" aria-hidden="true"></i> Telefonda oching</span>
+                    <h2 class="qr-title" id="qrTitle">Telefoningizdan skanerlang</h2>
+                    <p class="qr-lead">Kamerani QR kodga qarating, AuraDeutsch darhol ochiladi. Ustoz bilan suhbatni xohlagan joyda boshlang.</p>
+                    <ol class="qr-steps">
+                        <li><i class="fa-solid fa-camera" aria-hidden="true"></i><span>Telefon kamerasini oching</span></li>
+                        <li><i class="fa-solid fa-qrcode" aria-hidden="true"></i><span>Kamerani QR kodga qarating</span></li>
+                        <li><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i><span>Chiqqan havolani bosing</span></li>
+                    </ol>
+                    <div class="qr-actions">
+                        <button type="button" class="btn btn-small" id="qrCopy" data-url="https://my-projectss-six.vercel.app/"><i class="fa-solid fa-link" aria-hidden="true"></i> Havolani nusxalash</button>
+                        <a class="btn btn-small btn-outline" href="./img/qr.png" download="auradeutsch-qr.png"><i class="fa-solid fa-download" aria-hidden="true"></i> QR kodni yuklab olish</a>
+                    </div>
+                </div>
+                <figure class="qr-figure">
+                    <img class="qr-img" src="./img/qr.png" width="290" height="290" alt="AuraDeutsch saytiga olib boradigan QR kod">
+                    <figcaption>my-projectss-six.vercel.app</figcaption>
+                </figure>
             </div>
         </section>
 
@@ -69,17 +136,17 @@
             </p>
             <div class="features">
                 <article class="feature">
-                    <div class="feature-icon">💬</div>
+                    <div class="feature-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></div>
                     <h3>Jonli suhbat</h3>
                     <p>Ustoz bilan har kuni gaplashing va so'zlashuv ko'nikmangizni oshiring.</p>
                 </article>
                 <article class="feature">
-                    <div class="feature-icon">🧠</div>
+                    <div class="feature-icon"><i class="fa-solid fa-brain" aria-hidden="true"></i></div>
                     <h3>Xatolar tahlili</h3>
                     <p>Suhbatdan keyin xatolaringiz tahlil qilinadi va ustozlar ularni eslab qoladi.</p>
                 </article>
                 <article class="feature">
-                    <div class="feature-icon">📱</div>
+                    <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></div>
                     <h3>Istalgan qurilmada</h3>
                     <p>Telefon, planshet yoki kompyuterda — qayerda bo'lsangiz ham o'rganing.</p>
                 </article>
@@ -150,7 +217,7 @@
                         <li>Barcha ustozlar, cheklovsiz</li>
                         <li>Ustozlar xatolarni eslab qoladi</li>
                     </ul>
-                    <button class="card-btn" data-plan="Sinov" data-price="Bepul">Sinab ko'rish</button>
+                    <button class="card-btn" data-plan="Sinov" data-amount="0" data-price="Bepul">Sinab ko'rish</button>
                 </div>
 
                 <div class="card popular">
@@ -165,7 +232,7 @@
                         <li>Barcha ustozlar, cheklovsiz</li>
                         <li>Ustozlar xatolarni eslab qoladi</li>
                     </ul>
-                    <button class="card-btn" data-plan="Standart" data-price="80,000 so'm / oy">Xarid qilish</button>
+                    <button class="card-btn" data-plan="Standart" data-amount="80000" data-price="80,000 so'm / oy">Xarid qilish</button>
                 </div>
 
                 <div class="card">
@@ -179,7 +246,7 @@
                         <li>Barcha ustozlar, cheklovsiz</li>
                         <li>Ustozlar xatolarni eslab qoladi</li>
                     </ul>
-                    <button class="card-btn" data-plan="Premium" data-price="150,000 so'm / oy">Xarid qilish</button>
+                    <button class="card-btn" data-plan="Premium" data-amount="150000" data-price="150,000 so'm / oy">Xarid qilish</button>
                 </div>
             </div>
         </section>
@@ -191,10 +258,10 @@
 
             <div class="contact-wrap">
                 <ul class="contact-info">
-                    <li>📍 Namangan, O'zbekiston</li>
-                    <li>📞 +998 99 999 99</li>
-                    <li>✉️ info@auradeutsch.uz</li>
-                    <li>🕘 Har kuni 09:00 – 21:00</li>
+                    <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Namangan, O'zbekiston</span></li>
+                    <li><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+998 99 999 99</span></li>
+                    <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>info@auradeutsch.uz</span></li>
+                    <li><i class="fa-solid fa-clock" aria-hidden="true"></i><span>Har kuni 09:00 – 21:00</span></li>
                 </ul>
 
                 <form class="contact-form" id="contactForm" novalidate>
@@ -235,10 +302,92 @@
         <p class="copyright">© <span id="year"></span> AuraDeutsch. Barcha huquqlar himoyalangan.</p>
     </footer>
 
+    <!-- CHECKOUT -->
+    <div class="modal" id="checkout" aria-hidden="true">
+        <div class="modal-box checkout-box" role="dialog" aria-modal="true" aria-labelledby="coTitle">
+            <div class="co-head">
+                <div>
+                    <h3 class="co-title" id="coTitle">Buyurtmani rasmiylashtirish</h3>
+                    <p class="co-sub">Tarif: <strong id="coPlan">Standart</strong></p>
+                </div>
+                <button type="button" class="co-close" id="coClose" aria-label="Oynani yopish"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+            </div>
+
+            <form class="co-form" id="checkoutForm" novalidate>
+                <div class="co-summary"><span>Jami</span><strong id="coAmount">80,000 so'm / oy</strong></div>
+
+                <div class="co-field">
+                    <label for="coName">Ism va familiya</label>
+                    <input class="co-input" id="coName" name="name" type="text" autocomplete="name" placeholder="Masalan: Ali Valiyev">
+                    <p class="field-error" id="err-name"></p>
+                </div>
+
+                <div class="co-field">
+                    <label for="coPhone">Telefon raqam</label>
+                    <div class="co-group">
+                        <span class="co-prefix">+998</span>
+                        <input class="co-input" id="coPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="90 123 45 67">
+                    </div>
+                    <p class="field-error" id="err-phone"></p>
+                </div>
+
+                <div class="co-field">
+                    <label for="coEmail">Email</label>
+                    <input class="co-input" id="coEmail" name="email" type="email" autocomplete="email" placeholder="ism@gmail.com">
+                    <p class="field-error" id="err-email"></p>
+                </div>
+
+                <fieldset class="co-card" id="coCardFields">
+                    <legend><i class="fa-solid fa-credit-card" aria-hidden="true"></i> Karta ma'lumotlari</legend>
+
+                    <div class="co-field">
+                        <label for="coCard">Karta raqami</label>
+                        <div class="co-group">
+                            <input class="co-input" id="coCard" name="cardnumber" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="0000 0000 0000 0000" maxlength="19">
+                            <span class="co-brand" id="coBrand" aria-live="polite"></span>
+                        </div>
+                        <p class="field-error" id="err-card"></p>
+                    </div>
+
+                    <div class="co-row">
+                        <div class="co-field">
+                            <label for="coExp">Amal qilish muddati</label>
+                            <input class="co-input" id="coExp" name="exp" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="OO/YY" maxlength="5">
+                            <p class="field-error" id="err-exp"></p>
+                        </div>
+                        <div class="co-field">
+                            <label for="coCvv">CVV / CVC</label>
+                            <input class="co-input" id="coCvv" name="cvc" type="password" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="3">
+                            <p class="field-error" id="err-cvv"></p>
+                        </div>
+                    </div>
+                    <p class="co-note">CVV faqat Visa va Mastercard uchun kerak. Uzcard va Humo uchun shart emas.</p>
+                </fieldset>
+
+                <label class="co-terms">
+                    <input type="checkbox" id="coTerms">
+                    <span>Foydalanish shartlari va maxfiylik siyosatiga roziman</span>
+                </label>
+                <p class="field-error" id="err-terms"></p>
+
+                <div class="co-demo" id="coDemo">
+                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                    <div>
+                        <strong>Demo rejim.</strong> Ma'lumotlar hech qayerga yuborilmaydi va pul yechilmaydi. Haqiqiy karta raqamini kiritmang.
+                        <button type="button" class="co-fill" id="coFill">Test ma'lumotlarini to'ldirish</button>
+                    </div>
+                </div>
+
+                <p class="field-error" id="coFormError" role="alert"></p>
+                <button type="submit" class="btn co-submit" id="coSubmit">To'lash</button>
+            </form>
+        </div>
+    </div>
+
     <!-- MODAL -->
     <div class="modal" id="modal" aria-hidden="true">
         <div class="modal-box" role="dialog" aria-modal="true">
-            <div class="modal-icon">✅</div>
+            <div class="modal-icon"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></div>
             <h3 id="modalTitle">Sotib oldingiz!</h3>
             <p id="modalText"></p>
             <button class="btn" id="modalClose">Yopish</button>

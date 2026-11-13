@@ -7,13 +7,13 @@
     --blue-dark: #238a4c;
     --blue-deep: #14532d;
     --green-mid: #2f7d49;
-    --bg: #6dc380;
+    --bg: #e3f1e7;
     --text: #17212e;
     --muted: #254a35;
     --white: #ffffff;
     --gold: #ffcc00;
     --radius: 22px;
-    --shadow: 0 10px 30px rgba(20, 83, 45, 0.22);
+    --shadow: 0 10px 30px rgba(20, 83, 45, 0.14);
     --header-h: 72px;
 
     /* Yon bo'shliq (notch / safe-area hisobga olingan) */
@@ -111,7 +111,7 @@ button {
 
 .btn-outline {
     background: var(--white);
-    border-color: var(--white);
+    border-color: var(--blue-dark);
     color: var(--blue-deep);
 }
 
@@ -232,6 +232,10 @@ button {
     min-width: 0;
 }
 
+.badge i {
+    margin-right: 6px;
+}
+
 .badge {
     display: inline-block;
     padding: 6px 16px;
@@ -300,19 +304,6 @@ button {
     min-height: 460px;
 }
 
-.phone {
-    width: min(320px, 70%);
-    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
-}
-
-.teacher {
-    position: absolute;
-    width: min(240px, 50%);
-    right: 0;
-    bottom: 0;
-    animation: float 4s ease-in-out infinite;
-}
-
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50%      { transform: translateY(-14px); }
@@ -343,8 +334,16 @@ button {
 }
 
 .feature-icon {
-    font-size: 40px;
-    margin-bottom: 12px;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e3f5e8;
+    color: var(--blue-dark);
+    font-size: 30px;
 }
 
 .feature h3 {
@@ -523,11 +522,14 @@ button {
 }
 
 .card-list li::before {
-    content: "✓";
+    content: "\f00c";
+    font-family: "Font Awesome 7 Free";
+    font-weight: 900;
     position: absolute;
     left: 4px;
+    top: 7px;
+    font-size: 13px;
     color: #22a559;
-    font-weight: 700;
 }
 
 .card-btn {
@@ -565,6 +567,19 @@ button {
     border-radius: var(--radius);
     font-size: 17px;
     overflow-wrap: anywhere;
+}
+
+.contact-info li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.contact-info i {
+    flex: 0 0 22px;
+    margin-top: 5px;
+    text-align: center;
+    color: var(--gold);
 }
 
 .contact-form {
@@ -699,6 +714,8 @@ button {
 
 .modal-icon {
     font-size: 56px;
+    line-height: 1.1;
+    color: #22a559;
 }
 
 .modal-box h3 {
@@ -853,8 +870,7 @@ button {
     .logo { width: 32px; height: 32px; }
     .hero-title { font-size: 27px; }
     .hero-right { min-height: 250px; }
-    .phone { width: 62%; }
-    .teacher { width: 40%; }
+    .device-wrap { width: 62%; }
     .narxi { font-size: 24px; }
     .stats { gap: 12px; }
     .stats strong { font-size: 21px; }
@@ -894,6 +910,699 @@ button {
 /* ---- Animatsiyani kamaytirishni so'ragan foydalanuvchilar ---- */
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .teacher { animation: none; }
     * { transition-duration: 0.01ms !important; }
+}
+
+
+/* =========================================================================
+   QURILMA PROFILLARI (Samsung / Xiaomi-Redmi / Honor / Apple)
+   -------------------------------------------------------------------------
+   Telefonlar CSS "viewport" kengligi (px) bo'yicha guruhlangan. Bir xil
+   kenglikdagi modellar bitta qoidadan foydalanadi. Kengliklar taxminiy:
+   ayrim modellar uchun manbalar bir-biridan farq qiladi va foydalanuvchi
+   ekran masshtabini o'zgartirishi mumkin, shuning uchun har guruh oraliq
+   bilan yozilgan.
+   ========================================================================= */
+
+/* 1) 280–319 px ------------------------------------------------------------
+   Galaxy Fold (1–3) tashqi ekrani (280), eng tor ekranlar */
+@media (min-width: 280px) and (max-width: 319.98px) {
+    :root { --pad: 10px; --py: 38px; --header-h: 56px; }
+    .brand-name { font-size: 15px; }
+    .logo { width: 26px; height: 26px; }
+    .burger { width: 40px; height: 40px; }
+    .badge { font-size: 12px; padding: 4px 12px; }
+    .hero-title { font-size: 22px; }
+    .hero-subtitle { font-size: 14px; }
+    .hero-right { min-height: 210px; }
+    .section-title { font-size: 22px; }
+    .section-text { font-size: 14px; }
+    .btn, .card-btn { font-size: 14px; }
+    .stats strong { font-size: 18px; }
+    .stats span { font-size: 12px; }
+    .image { width: 140px; }
+    .narxi { font-size: 21px; }
+    .card { padding: 22px 12px; }
+    .card-list li { font-size: 13px; padding-left: 24px; }
+    .contact-info { font-size: 14px; }
+    .footer-links { gap: 8px 14px; font-size: 14px; }
+}
+
+/* 2) 320–343 px ------------------------------------------------------------
+   iPhone SE (1-avlod) / 5s, eski kichik Samsung, Redmi 4–5 */
+@media (min-width: 320px) and (max-width: 343.98px) {
+    :root { --pad: 12px; --py: 42px; --header-h: 58px; }
+    .brand-name { font-size: 16px; }
+    .logo { width: 28px; height: 28px; }
+    .hero-title { font-size: 25px; }
+    .hero-subtitle { font-size: 15px; }
+    .hero-right { min-height: 230px; }
+    .section-title { font-size: 24px; }
+    .stats strong { font-size: 20px; }
+    .image { width: 160px; }
+    .narxi { font-size: 23px; }
+    .card { padding: 24px 14px; }
+    .card-list li { font-size: 14px; }
+    .footer-links { gap: 8px 16px; }
+}
+
+/* 3) 344–359 px ------------------------------------------------------------
+   Galaxy Z Fold 4 / 5 / 6 / 7 tashqi (yopiq) ekrani, ba'zi Redmi/Honor */
+@media (min-width: 344px) and (max-width: 359.98px) {
+    :root { --pad: 14px; --py: 44px; --header-h: 60px; }
+    .brand-name { font-size: 17px; }
+    .hero-title { font-size: 26px; }
+    .hero-right { min-height: 240px; }
+    .image { width: 170px; }
+    .narxi { font-size: 24px; }
+    .card { padding: 24px 14px; }
+}
+
+/* 4) 360–374 px ------------------------------------------------------------
+   Galaxy S10 – S26 (asosiy), S24 FE / S23 FE / S21 FE, Galaxy A05–A26 va
+   M05–M15 (eski), Galaxy Z Flip 3–7, Redmi 9–14C, Redmi Note 11–12,
+   Honor X5–X7 */
+@media (min-width: 360px) and (max-width: 374.98px) {
+    :root { --pad: 16px; --py: 46px; --header-h: 60px; }
+    .hero-title { font-size: 27px; }
+    .hero-right { min-height: 250px; }
+    .image { width: 180px; }
+    .card { padding: 26px 16px; }
+}
+
+/* 5) 375–389 px ------------------------------------------------------------
+   iPhone SE (2, 3-avlod) / 6–8 / X / XS / 11 Pro / 12 mini / 13 mini,
+   Galaxy S21+ / S22+ / S23+ / S24+ / S25 Ultra (≈384),
+   Galaxy S21 Ultra / S22 Ultra / S23 Ultra / S24 Ultra (≈384) */
+@media (min-width: 375px) and (max-width: 389.98px) {
+    :root { --pad: 16px; --py: 48px; }
+    .hero-title { font-size: 29px; }
+    .hero-right { min-height: 270px; }
+    .image { width: 190px; }
+}
+
+/* 6) 390–409 px ------------------------------------------------------------
+   iPhone 12 / 13 / 14 / 14 Pro / 15 / 15 Pro / 16 / 16 Pro / 17 / 17 Pro
+   (390–402), Galaxy S26+ (taxminan), Pixel 7–10, Redmi Note 13 / 14 (393),
+   Honor 90 / 200 / Magic 6 / Magic 7 (≈393) */
+@media (min-width: 390px) and (max-width: 409.98px) {
+    :root { --pad: 18px; --py: 50px; }
+    .hero-title { font-size: 30px; }
+    .hero-right { min-height: 290px; }
+    .image { width: 200px; }
+}
+
+/* 7) 410–429 px ------------------------------------------------------------
+   Galaxy S25+ / S26 Ultra / A16–A56 / M15–M55 / F14–F55 (≈412),
+   iPhone 11 / XR / XS Max (414), iPhone Air (420),
+   Redmi Note 11–12 Pro (≈412), Honor X8b–X9b / Magic V2–V3 (≈412) */
+@media (min-width: 410px) and (max-width: 429.98px) {
+    :root { --pad: 18px; --py: 52px; }
+    .hero-title { font-size: 32px; }
+    .hero-right { min-height: 300px; }
+    .image { width: 210px; }
+}
+
+/* 8) 430–479 px ------------------------------------------------------------
+   iPhone 12 / 13 / 14 Plus va Pro Max (428–430), iPhone 15 / 16 Plus,
+   iPhone 15 / 16 Pro Max (430), iPhone 16 / 17 Pro Max (440) */
+@media (min-width: 430px) and (max-width: 479.98px) {
+    :root { --pad: 20px; --py: 54px; }
+    .hero-title { font-size: 34px; }
+    .hero-right { min-height: 320px; }
+    .image { width: 220px; }
+}
+
+/* 9) 480–599 px ------------------------------------------------------------
+   Katta telefonlar (gorizontal yoki masshtab o'zgargan), ochiq
+   Flip / katlanuvchi qurilmalarning kichik rejimlari */
+@media (min-width: 480px) and (max-width: 599.98px) {
+    :root { --pad: 24px; --py: 56px; }
+    .hero-title { font-size: 38px; }
+    .hero-right { min-height: 340px; }
+    .teach { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cart { max-width: none; }
+    .hero-actions { flex-direction: row; justify-content: center; }
+    .hero-actions .btn { flex: 1 1 0; max-width: 220px; }
+}
+
+
+/* ---- Juda uzun (20:9 – 22:9) ekranlar ----------------------------------
+   Galaxy S (S20–S26), Galaxy A / M / F, Z Flip 3–7, Redmi Note,
+   Honor X / Number seriyalari */
+@media (max-aspect-ratio: 9/19) and (max-width: 480px) {
+    .hero { padding-top: 40px; }
+    .hero-right { min-height: 330px; }
+    .section-text { margin-bottom: 36px; }
+}
+
+/* ---- Katlanuvchi qurilmalar: OCHILGAN (deyarli kvadrat) ekran ----------
+   Galaxy Z Fold 3 / 4 / 5 / 6 (≈ 673–720 px), Z Fold 7 (≈ 984 px),
+   Honor Magic V2 / V3 ichki ekrani */
+@media (min-width: 540px) and (max-width: 1000px) and (min-aspect-ratio: 4/5) and (max-aspect-ratio: 5/4) {
+    :root { --pad: 28px; --py: 52px; }
+    .hero { padding-top: 36px; min-height: auto; }
+    .hero-right { min-height: 300px; }
+    .hero-title { font-size: clamp(34px, 5.4vw, 48px); }
+    .teach { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cart { max-width: none; }
+    .features { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .feature { padding: 24px 16px; }
+}
+
+/* Z Fold 7 ochiq (≈ 984 px) va unga o'xshash kvadrat ekranlar */
+@media (min-width: 900px) and (max-width: 1100px) and (min-aspect-ratio: 4/5) and (max-aspect-ratio: 5/4) {
+    .teach { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .cards .card:last-child { grid-column: auto; max-width: none; margin: 0; }
+    .hero-right { min-height: 340px; }
+}
+
+/* ---- Telefon GORIZONTAL (landshaft) -----------------------------------
+   iPhone SE–17 (568–932 px), Galaxy S / A / Z Flip (≈ 740–960 px),
+   Redmi / Honor (≈ 760–900 px) */
+@media (orientation: landscape) and (max-height: 480px) and (min-width: 560px) {
+    :root { --header-h: 54px; --py: 36px; --pad: 20px; }
+
+    .hero {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+        gap: 24px;
+        padding-top: 28px;
+        padding-bottom: 28px;
+    }
+    .hero-subtitle { margin-left: 0; margin-right: 0; font-size: 15px; margin-bottom: 18px; }
+    .hero-actions,
+    .stats { justify-content: flex-start; }
+    .hero-actions { flex-direction: row; margin-bottom: 20px; }
+    .hero-actions .btn { max-width: none; flex: 0 0 auto; }
+    .hero-title { font-size: clamp(24px, 4.4vw, 36px); margin-bottom: 12px; }
+    .hero-right { min-height: 220px; width: auto; flex: 1 1 40%; }
+    .device-wrap { width: min(170px, 60%); }
+
+    .teach { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cart { max-width: none; }
+    .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .cards .card:last-child { grid-column: auto; max-width: none; margin: 0; }
+    .card { padding: 22px 12px; }
+    .narxi { font-size: 22px; }
+    .contact-wrap { grid-template-columns: 1fr 1.2fr; }
+    .footer-inner { flex-direction: row; text-align: left; align-items: flex-start; }
+    .footer-links { justify-content: flex-end; }
+}
+
+/* iPhone Pro Max / S Ultra landshaft (≈ 900–960 px): to'liq menyu ham sig'adi */
+@media (orientation: landscape) and (max-height: 480px) and (min-width: 901px) {
+    .header .btn-small { display: inline-block; padding: 8px 14px; font-size: 14px; }
+    .item-link { padding: 6px 9px; font-size: 14px; }
+}
+
+
+/* =========================================================================
+   TELEFON MAKETI (CSS bilan chizilgan, rasm kerak emas)
+   Hamma o'lcham "cqw" (telefon kengligiga nisbatan) bilan berilgan,
+   shuning uchun telefon kichrayganda ichidagi hamma narsa mos kichrayadi.
+   ========================================================================= */
+[hidden] { display: none !important; }
+
+.hero-right { align-items: center; }
+
+.device-wrap {
+    width: min(300px, 78%);
+    container-type: inline-size;
+    animation: float 6s ease-in-out infinite;
+}
+
+.device {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 18.8;
+    padding: 3.2cqw;
+    border-radius: 15cqw;
+    background: linear-gradient(145deg, #2b3542, #0e151f);
+    box-shadow:
+        0 30px 50px rgba(15, 40, 25, 0.30),
+        inset 0 0 0 0.7cqw #3b4757;
+}
+
+.device .side {
+    position: absolute;
+    width: 1.1cqw;
+    background: #1a232f;
+    border-radius: 0.6cqw;
+}
+.device .s1 { left: -0.9cqw; top: 20%; height: 6%; }
+.device .s2 { left: -0.9cqw; top: 28%; height: 11%; }
+.device .s3 { right: -0.9cqw; top: 26%; height: 15%; }
+
+.screen {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 12cqw;
+    background: #f1f6f3;
+    color: #17212e;
+    font-size: 4cqw;
+    line-height: 1.35;
+    text-align: left;
+}
+
+.island {
+    position: absolute;
+    top: 2.6cqw;
+    left: 50%;
+    z-index: 3;
+    width: 27cqw;
+    height: 7.4cqw;
+    transform: translateX(-50%);
+    border-radius: 5cqw;
+    background: #080d13;
+}
+
+.statusbar {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    height: 13cqw;
+    padding: 2.5cqw 8cqw 0 9.5cqw;
+    background: #fff;
+    font-size: 3.5cqw;
+    font-weight: 700;
+}
+
+.status-icons { display: flex; gap: 1.8cqw; font-size: 3.2cqw; }
+
+.app-head {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 3cqw;
+    padding: 1.5cqw 5cqw 3cqw;
+    background: #fff;
+    border-bottom: 0.3cqw solid #e3ece6;
+}
+
+.ava {
+    display: grid;
+    flex: 0 0 10.5cqw;
+    width: 10.5cqw;
+    height: 10.5cqw;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffd6a5, #ff9f6b);
+    color: #7a3b10;
+    font-size: 4.6cqw;
+    font-weight: 800;
+}
+
+.who { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+.who strong { color: #14532d; font-size: 4.2cqw; line-height: 1.2; }
+.who span { color: #5c6b7d; font-size: 3cqw; }
+.online {
+    display: inline-block;
+    width: 1.8cqw;
+    height: 1.8cqw;
+    margin-right: 1.4cqw;
+    border-radius: 50%;
+    background: #22a559;
+}
+.more { color: #5c6b7d; font-size: 4cqw; }
+
+.timer {
+    align-self: center;
+    flex: 0 0 auto;
+    margin: 3cqw 0 1cqw;
+    padding: 1.2cqw 3.4cqw;
+    border-radius: 99px;
+    background: #ddf1e3;
+    color: #14532d;
+    font-size: 3cqw;
+    font-weight: 700;
+}
+
+.chat {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 3.2cqw;
+    min-height: 0;
+    padding: 2cqw 4cqw 3.4cqw;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 7cqw);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 7cqw);
+}
+
+.msg {
+    max-width: 82%;
+    padding: 3cqw 4cqw;
+    border-radius: 4.4cqw;
+    font-size: 4.2cqw;
+}
+.msg small { display: block; margin-top: 1cqw; font-size: 3.2cqw; opacity: 0.7; }
+.msg.them {
+    align-self: flex-start;
+    border-bottom-left-radius: 1cqw;
+    background: #fff;
+    box-shadow: 0 0.4cqw 1.4cqw rgba(0, 0, 0, 0.07);
+}
+.msg.me {
+    align-self: flex-end;
+    border-bottom-right-radius: 1cqw;
+    background: #238a4c;
+    color: #fff;
+}
+.msg .err {
+    text-decoration: underline wavy #ffb4a8;
+    text-underline-offset: 0.7cqw;
+}
+
+.tip {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.4cqw;
+    align-self: stretch;
+    padding: 3cqw 3.4cqw;
+    border: 0.3cqw solid #f1de8a;
+    border-radius: 3.8cqw;
+    background: #fff8dc;
+    color: #5b4a00;
+    font-size: 3.7cqw;
+}
+.tip > i { margin-top: 0.6cqw; color: #d6a100; }
+.tip small { display: block; margin-top: 0.8cqw; font-size: 3.1cqw; opacity: 0.8; }
+.tip u { text-decoration: none; padding: 0 0.8cqw; border-radius: 1cqw; background: #ffe98a; font-weight: 700; }
+
+.msg.voice {
+    display: flex;
+    align-items: center;
+    gap: 2.6cqw;
+    font-size: 3.4cqw;
+}
+.msg.voice > i { font-size: 3.4cqw; }
+
+.wave { display: inline-flex; align-items: center; gap: 0.9cqw; height: 6.5cqw; }
+.wave i {
+    display: block;
+    width: 0.9cqw;
+    height: 100%;
+    border-radius: 1cqw;
+    background: currentColor;
+    transform: scaleY(0.4);
+}
+.wave i:nth-child(3n)   { transform: scaleY(0.9); }
+.wave i:nth-child(3n+1) { transform: scaleY(0.55); }
+.wave i:nth-child(4n)   { transform: scaleY(0.75); }
+
+.controls {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6cqw;
+    padding: 3cqw 0 3.6cqw;
+    border-top: 0.3cqw solid #e3ece6;
+    background: #fff;
+}
+.wave.live { height: 5cqw; color: #238a4c; }
+.wave.live i { animation: wave 1.1s ease-in-out infinite; }
+.wave.live i:nth-child(2n) { animation-delay: 0.15s; }
+.wave.live i:nth-child(3n) { animation-delay: 0.3s; }
+.wave.live i:nth-child(5n) { animation-delay: 0.45s; }
+@keyframes wave { 0%, 100% { transform: scaleY(0.3); } 50% { transform: scaleY(1); } }
+
+.mic {
+    display: grid;
+    width: 15cqw;
+    height: 15cqw;
+    place-items: center;
+    border-radius: 50%;
+    background: #238a4c;
+    color: #fff;
+    font-size: 6cqw;
+    box-shadow: 0 0 0 2.4cqw rgba(35, 138, 76, 0.16);
+}
+.hint { color: #5c6b7d; font-size: 3cqw; }
+.home-bar {
+    width: 30cqw;
+    height: 1.2cqw;
+    margin-top: 1cqw;
+    border-radius: 1cqw;
+    background: #17212e;
+    opacity: 0.85;
+}
+
+/* Telefon yonboshlab tutilganda maket ko'rsatilmaydi (ichi juda kichik bo'lib qoladi) */
+@media (orientation: landscape) and (max-height: 480px) and (min-width: 560px) {
+    .hero-right { display: none; }
+}
+@media (max-width: 600px) {
+    .device-wrap { width: min(250px, 68%); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .device-wrap, .wave.live i { animation: none; }
+}
+
+
+/* =========================================================================
+   TO'LOV OYNASI (Sinab ko'rish / Xarid qilish)
+   ========================================================================= */
+body.modal-open { overflow: hidden; }
+
+#modalText { white-space: pre-line; }
+.modal-icon { line-height: 1.1; color: #22a559; }
+
+.checkout-box {
+    max-width: 540px;
+    max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
+    padding: 0;
+    overflow-y: auto;
+    text-align: left;
+    -webkit-overflow-scrolling: touch;
+}
+
+.co-head {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 20px 22px 14px;
+    background: var(--white);
+    border-bottom: 1px solid #e3efe7;
+}
+.co-title { margin: 0; font-size: 21px; color: var(--blue-deep); }
+.co-sub { margin: 2px 0 0; font-size: 14px; color: var(--muted); }
+
+.co-close {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: #eef6f0;
+    color: var(--blue-deep);
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.co-close:hover { background: #dcebe0; }
+
+.co-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px 22px 24px;
+}
+
+.co-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: #eef7f1;
+    color: var(--blue-deep);
+}
+.co-summary strong { font-size: 18px; }
+
+.co-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.co-field label { font-size: 14px; font-weight: 600; color: var(--blue-deep); }
+
+.co-input {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 14px;
+    border: 2px solid #cfe8d6;
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--text);
+    font: inherit;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+.co-input:focus { outline: none; border-color: var(--blue-dark); }
+
+.co-group {
+    display: flex;
+    align-items: stretch;
+    border: 2px solid #cfe8d6;
+    border-radius: 10px;
+    background: var(--white);
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+.co-group:focus-within { border-color: var(--blue-dark); }
+.co-group .co-input { border: none; border-radius: 0; }
+.co-prefix {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    background: #eef7f1;
+    color: var(--blue-deep);
+    font-weight: 600;
+}
+.co-brand {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    color: var(--blue-dark);
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.is-invalid,
+.co-group.is-invalid { border-color: #d33 !important; }
+.field-error { min-height: 0; margin: 0; color: #d33; font-size: 13px; }
+.field-error:empty { display: none; }
+
+.co-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+    padding: 14px 14px 12px;
+    border: 2px solid #d9ece0;
+    border-radius: 14px;
+}
+.co-card legend { padding: 0 8px; font-weight: 700; color: var(--blue-deep); }
+.co-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.co-note { margin: -4px 0 0; font-size: 12.5px; color: var(--muted); }
+
+.co-terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.co-terms input { flex: 0 0 20px; width: 20px; height: 20px; margin-top: 2px; accent-color: var(--blue-dark); }
+
+.co-demo {
+    display: flex;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid #f0dc8a;
+    border-radius: 12px;
+    background: #fff7d6;
+    color: #5b4a00;
+    font-size: 13px;
+}
+.co-demo > i { margin-top: 3px; color: #b58900; }
+.co-fill {
+    display: block;
+    margin-top: 6px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--blue-dark);
+    font: inherit;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.co-submit { width: 100%; padding: 15px; font-size: 17px; }
+.co-submit:disabled { opacity: 0.7; cursor: progress; transform: none; box-shadow: none; }
+
+@media (max-width: 480px) {
+    .modal { padding: 10px; }
+    .checkout-box { max-height: calc(100dvh - 20px); border-radius: 18px; }
+    .co-head { padding: 16px 16px 12px; }
+    .co-form { padding: 14px 16px 20px; }
+    .co-row { gap: 10px; }
+}
+
+
+/* =========================================================================
+   QR KOD BO'LIMI
+   ========================================================================= */
+.qr { padding-top: 24px; }
+
+.qr-card {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+    gap: 36px;
+    padding: 40px;
+    border-radius: 28px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.qr-text { min-width: 0; }
+.qr-title { margin: 6px 0 10px; font-size: clamp(24px, 3.4vw, 34px); line-height: 1.2; color: var(--blue-deep); }
+.qr-lead { max-width: 480px; margin-bottom: 20px; color: var(--muted); }
+
+.qr-steps { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.qr-steps li { display: flex; align-items: center; gap: 12px; font-weight: 500; }
+.qr-steps i {
+    display: grid;
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border-radius: 50%;
+    background: #e3f5e8;
+    color: var(--blue-dark);
+    font-size: 16px;
+}
+
+.qr-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.qr-actions .btn i { margin-right: 6px; }
+
+.qr-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    justify-self: center;
+    width: 100%;
+    max-width: 320px;
+    padding: 16px 16px 14px;
+    border: 2px solid #cfe8d6;
+    border-radius: 24px;
+    background: #fff;
+    text-align: center;
+}
+.qr-img { width: 100%; max-width: 290px; height: auto; aspect-ratio: 1 / 1; }
+.qr-figure figcaption { color: var(--muted); font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }
+
+@media (max-width: 768px) {
+    .qr-card { grid-template-columns: 1fr; gap: 24px; padding: 28px 22px; border-radius: 22px; }
+    .qr-figure { max-width: 280px; }
+}
+@media (max-width: 480px) {
+    .qr-card { padding: 22px 16px; }
+    .qr-actions .btn { flex: 1 1 100%; }
 }

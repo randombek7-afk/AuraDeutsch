@@ -157,8 +157,8 @@ button {
 }
 
 .logo {
-    width: 42px;
-    height: 42px;
+    width: 50px;
+    height: 50px;
     object-fit: contain;
     border-radius: 50%;
 }
@@ -310,6 +310,18 @@ button {
     justify-content: center;
     align-items: center;
     min-height: 460px;
+}
+.log{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.secondlogo{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline-block;
 }
 
 @keyframes float {
@@ -642,6 +654,70 @@ button {
     color: #d33;
     font-size: 14px;
 }
+
+/* =========================================================================
+   QR KOD BO'LIMI
+   ========================================================================= */
+.qr { padding-top: 24px; }
+
+.qr-card {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+    gap: 36px;
+    padding: 40px;
+    border-radius: 28px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.qr-text { min-width: 0; }
+.qr-title { margin: 6px 0 10px; font-size: clamp(24px, 3.4vw, 34px); line-height: 1.2; color: var(--blue-deep); }
+.qr-lead { max-width: 480px; margin-bottom: 20px; color: var(--muted); }
+
+.qr-steps { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.qr-steps li { display: flex; align-items: center; gap: 12px; font-weight: 500; }
+.qr-steps i {
+    display: grid;
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border-radius: 50%;
+    background: #e3f5e8;
+    color: var(--blue-dark);
+    font-size: 16px;
+}
+
+.qr-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.qr-actions .btn i { margin-right: 6px; }
+
+.qr-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    justify-self: center;
+    width: 100%;
+    max-width: 320px;
+    padding: 16px 16px 14px;
+    border: 2px solid #cfe8d6;
+    border-radius: 24px;
+    background: #fff;
+    text-align: center;
+}
+.qr-img { width: 100%; max-width: 290px; height: auto; aspect-ratio: 1 / 1; }
+.qr-figure figcaption { color: var(--muted); font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }
+
+@media (max-width: 768px) {
+    .qr-card { grid-template-columns: 1fr; gap: 24px; padding: 28px 22px; border-radius: 22px; }
+    .qr-figure { max-width: 280px; }
+}
+@media (max-width: 480px) {
+    .qr-card { padding: 22px 16px; }
+    .qr-actions .btn { flex: 1 1 100%; }
+}
+
 
 /* ---------- Footer ---------- */
 .footer {

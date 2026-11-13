@@ -366,3 +366,30 @@ document.addEventListener("DOMContentLoaded", () => {
         openModal("Yuborildi!", "Xabaringiz qabul qilindi. Tez orada bog'lanamiz.");
     });
 });
+
+ /* ---------- QR bo'limi: havolani nusxalash ---------- */
+    const qrCopy = document.getElementById("qrCopy");
+    if (qrCopy) {
+        const label = qrCopy.innerHTML;
+        qrCopy.addEventListener("click", async () => {
+            const url = qrCopy.dataset.url;
+            let ok = false;
+            try {
+                await navigator.clipboard.writeText(url);
+                ok = true;
+            } catch (err) {
+                const t = document.createElement("textarea");
+                t.value = url;
+                t.setAttribute("readonly", "");
+                t.style.cssText = "position:fixed;opacity:0;top:0;left:0";
+                document.body.appendChild(t);
+                t.select();
+                try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+                t.remove();
+            }
+            qrCopy.innerHTML = ok
+                ? '<i class="fa-solid fa-check" aria-hidden="true"></i> Nusxalandi'
+                : '<i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Nusxalab bo\'lmadi';
+            setTimeout(() => { qrCopy.innerHTML = label; }, 2000);
+        });
+    }
